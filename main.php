@@ -1,24 +1,27 @@
 <?php
 /*
 Plugin Name: Batch Create - Force Update
-Plugin URI: 
+Plugin URI: https://github.com/clas-web/batch-create-uncc-force-update
 Description: On activation, forces the Batch Create plugin to run its update code.
 Version: 1.0.0
 Author: Crystal Barton
-Author URI: http://www.crystalbarton.com
+Author URI: https://www.linkedin.com/in/crystalbarton
 */
 
-register_activation_hook( __FILE__, array('BatchCreate_ForceUpdate' , 'update_batch_create') );
 
-class BatchCreate_ForceUpdate
+register_activation_hook( __FILE__, 'bcfu_update_batch_create' );
+
+
+/**
+ * Force the Batch Create plugin to run its update code.
+ */
+if( !function_exists('bcfu_update_batch_create') ):
+function bcfu_update_batch_create()
 {
-	public static function update_batch_create()
-	{
-		if( !class_exists('Incsub_Batch_Create_Model') )
-			require_once( ABSPATH . 'wp-content/plugins/batch-create-uncc/model/model.php' );
-		$model = Incsub_Batch_Create_Model::get_instance();
-		$model->create_schema();
-	}
+	if( !class_exists('Incsub_Batch_Create_Model') )
+		require_once( ABSPATH . 'wp-content/plugins/batch-create-uncc/model/model.php' );
+	$model = Incsub_Batch_Create_Model::get_instance();
+	$model->create_schema();
 }
-
+endif;
 
