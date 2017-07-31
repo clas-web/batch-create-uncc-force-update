@@ -3,9 +3,10 @@
 Plugin Name: Batch Create - Force Update
 Plugin URI: https://github.com/clas-web/batch-create-uncc-force-update
 Description: On activation, forces the Batch Create plugin to run its update code.
-Version: 1.0.0
+Version: 1.1.0
 Author: Crystal Barton
 Author URI: https://www.linkedin.com/in/crystalbarton
+GitHub Plugin URI: https://github.com/clas-web/batch-create-uncc-force-update
 */
 
 
